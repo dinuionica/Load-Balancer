@@ -66,7 +66,7 @@ void loader_store(load_balancer *main,
     } while (current != (main->hash_ring)->head);
     /* if the key hash is greater than the hash
      * to the replicas we add the object to the head of the list
-     * /
+     */
     server_memory *head_server = (main->hash_ring->head)->data;
     *server_id = head_server->id % NUM_SERVERS;
     server_store(head_server, key, value);
