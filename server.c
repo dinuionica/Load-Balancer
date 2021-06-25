@@ -7,20 +7,20 @@
 
 #define SIZE_SERVER 10000
 
-/* Functia care creaza si initializeaza un server*/
+/* The function to create and initialize a new server */
 server_memory *init_server_memory() {
 	server_memory *server = malloc(sizeof(server_memory));
 	DIE(server == NULL, "Allocation Error\n");
 
 	server->id = 0;
 	server->hash = 0;
-	/* initializare hashtable server */
+	/* initialize hashtable server */
 	server->hashtable = ht_create(SIZE_SERVER, hash_function_string,
 								  compare_function_strings);
 	return server;
 }
 
-/* Functia care adauga o pereche cheie-valoare in hashtable-ul unui server */
+/* The function that adds a key-value pair to a server's hashtable */
 void server_store(server_memory *server, char *key, char *value) {
 	if (server == NULL) {
 		return;
@@ -28,7 +28,7 @@ void server_store(server_memory *server, char *key, char *value) {
 	ht_put(server->hashtable, key, strlen(key) + 1, value, strlen(value) + 1);
 }
 
-/* Functia care elimina un obiect dintr-un hashtable */
+/* The function that removes an object from a hashtable*/
 void server_remove(server_memory *server, char *key) {
 	if (server == NULL) {
 		return;
@@ -36,7 +36,7 @@ void server_remove(server_memory *server, char *key) {
 	ht_remove_entry(server->hashtable, key);
 }
 
-/* Functia care extrage o valoare  din  hashtable-ul unui server */
+/* The function that extracts a value from a server's hashtable */
 char *server_retrieve(server_memory *server, char *key) {
 	if (server == NULL) {
 		return NULL;
@@ -44,7 +44,7 @@ char *server_retrieve(server_memory *server, char *key) {
 	return (char *)ht_get(server->hashtable, key);
 }
 
-/* Functia care elibereaza memoria unui server */
+/* The function that frees the memory of a server */
 void free_server_memory(server_memory *server) {
 	ht_free(server->hashtable);
 	server->hashtable = NULL;
