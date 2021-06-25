@@ -7,7 +7,7 @@
 #include "LinkedList.h"
 #include "utils.h"
 
-/* Functia care creeaza o lista simplu inlantuita */
+/* The function to create a linked list*/
 linked_list_t *
 ll_create(unsigned int data_size) {
     linked_list_t *list;
@@ -22,14 +22,14 @@ ll_create(unsigned int data_size) {
     return list;
 }
 
-/* Functia care adauga un nou nod in cadrul listei */
+/* The function to add a new node in the list */
 void ll_add_nth_node(linked_list_t *list, int n, const void *new_data) {
     if (n < 0) {
         printf("Error!\n");
         return;
 
     } else {
-        /* alocam un nou nod,respectiv campul data al acestuia */
+        /* allocation memory of the node */
         ll_node_t *new = malloc(sizeof(*new));
         DIE(new == NULL, "Allocation error");
         new->data = malloc(list->data_size);
@@ -37,14 +37,14 @@ void ll_add_nth_node(linked_list_t *list, int n, const void *new_data) {
         memcpy(new->data, new_data, list->data_size);
         ll_node_t *current = NULL;
 
-        /* adaugare pe prima pozitie in lista */
+        /* adding at the first position */
         if (n == 0) {
             new->next = NULL;
             current = list->head;
             list->head = new;
             new->next = current;
         } else if (n >= (int) list->size) {
-            /* adaugare pe o pozitie mai mare decat lungimea listei */
+            /* adding at the last position */
             new->next = NULL;
             if (list->head == NULL) {
                 list->head = new;
@@ -58,10 +58,9 @@ void ll_add_nth_node(linked_list_t *list, int n, const void *new_data) {
                 list->size++;
             }
         } else {
-            /* adaugare pe o anumita pozitie in lista */
+            /* adding at a specific position */
             int count = 0;
             current = list->head;
-            /* parcurgem lista si numaram pozitiile */
             while (count != (int)n - 1) {
                 current = current->next;
                 count++;
@@ -73,8 +72,8 @@ void ll_add_nth_node(linked_list_t *list, int n, const void *new_data) {
     }
 }
 
-/* Functia care returneaza un pointer la pozitia
- * nodului ce urmeaza sa fie sters din lista
+/* The function that returns a pointer to the position
+ * the node to be deleted from the list
  */
 ll_node_t *
 ll_remove_nth_node(linked_list_t *list, int n) {
@@ -83,7 +82,7 @@ ll_remove_nth_node(linked_list_t *list, int n) {
         return NULL;
 
     } else if (n == 0) {
-        /* stergere de prima pozitie din lista */
+        /* deleting the first position in the list */
         ll_node_t *first_node = NULL;
         first_node = list->head;
         list->head = first_node->next;
@@ -91,7 +90,7 @@ ll_remove_nth_node(linked_list_t *list, int n) {
         return first_node;
 
     } else {
-        /* stergere de pe o anumita pozitie din lista */
+        /* delete from a certain position in the list */
         ll_node_t *current = NULL, *previous = NULL;
 
         current = list->head;
@@ -111,8 +110,8 @@ ll_remove_nth_node(linked_list_t *list, int n) {
 }
 
 /*
- * Functia intoarce numarul de noduri din lista al carei
- * pointer este trimis ca parametru
+ * The function returns the number of nodes in the list whose
+ * pointer is sent as a parameter
  */
 unsigned int ll_get_size(linked_list_t *list) {
     if (list == NULL) {
@@ -122,15 +121,15 @@ unsigned int ll_get_size(linked_list_t *list) {
     return list->size;
 }
 
-/* Functia care elibereaza memorie unui liste */
+/* The function that frees memory from a list */
 void ll_free(linked_list_t **pp_list) {
     linked_list_t *list = *pp_list;
     ll_node_t *temp = NULL , *current = NULL;
     current = list->head;
 
-    /* pargugem lista, pastram intr-un nod temporar
-     * fiecare nod si apoi ii eliberam memoria 
-     */
+   /* pargugem list, keep in a temporary node
+    * each node and then we release its memory
+    */
     while (current  != NULL) {
        temp = current;
        current = current->next;
@@ -141,7 +140,7 @@ void ll_free(linked_list_t **pp_list) {
     list = NULL;
 }
 
-/* Functia care afiseaza o lista ce contin int-uri */
+/* The function that displays a list containing ints */
 void ll_print_int(linked_list_t *list) {
     ll_node_t *curr;
 
@@ -158,7 +157,7 @@ void ll_print_int(linked_list_t *list) {
     printf("\n");
 }
 
-/* Functia care afiseaza o lista ce contin string-uri */
+/* The function that displays a list containing strings */
 void ll_print_string(linked_list_t *list) {
     ll_node_t *curr;
 
