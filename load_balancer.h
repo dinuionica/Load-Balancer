@@ -11,9 +11,9 @@ struct load_balancer;
 typedef struct load_balancer load_balancer;
 
 struct load_balancer {
-	/* structura load_balancer-ului contine un hash_ring ce este 
-	 * reprezentat sub forma de lista circulara dublu inlantuita 
-	 */
+       /* load_balancer structure contains a hash_ring that is
+	* represented as a double chained circular list
+	*/
 	doubly_linked_list_t *hash_ring;
 };
 
