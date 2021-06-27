@@ -27,7 +27,7 @@ of a replica. For the server side I used a hashtable
 which contains an array of simply chained lists.
 
 
-Server:
+# Server:
 
 For this part I used the skeleton and the implemented functions
 within the lab of simply chained and hashtable lists.
@@ -50,7 +50,7 @@ the memory of a hastable, then I freed the memory allocated to the server
 and I redirected the pointer to NULL
 
 
-Load Balancer:
+# Load-Balancer:
 
 For this part I used the skeleton and the implemented functions
 in the double-chain circular list laboratory.
