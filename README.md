@@ -6,3 +6,12 @@ required when a server is down or one is turned on. Specifically, when a server
 is shut down, only the objects on it need to be redistributed to nearby servers.
 Similarly, when a new server is added, it will only retrieve objects from a l
 imited number of neighboring servers.
+
+For download this project:
+```
+https://github.com/dinuionica/Text-Editor.git
+```
+For test you can use de checker :<br />
+```
+./checker
+```
