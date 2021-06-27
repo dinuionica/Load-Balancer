@@ -30,7 +30,7 @@ which contains an array of simply chained lists.
 # Server:
 
 For this part I used the skeleton and the implemented functions
-within the lab of simply chained and hashtable lists.
+of simply chained and hashtable lists.
 
 Functions:
 init_server_memory-> Within this function I created and I
@@ -53,7 +53,7 @@ and I redirected the pointer to NULL
 # Load-Balancer:
 
 For this part I used the skeleton and the implemented functions
-in the double-chain circular list laboratory.
+of double-chain circular list.
 
 Functions:
 init_load_balancer-> Within this function we have allocated load
