@@ -181,7 +181,7 @@ void ht_remove_entry(hashtable_t *ht, void *key) {
 	}
 }
 
-/* The function that frees the memory of a hashtable The function that frees the memory of a hasable */
+/* The function that frees the memory of a hashtable */
 void ht_free(hashtable_t *ht) {
 	for (unsigned int i = 0; i < ht->hmax; ++i) {
 		ll_node_t *node = ht->buckets[i]->head;
