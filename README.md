@@ -9,9 +9,9 @@ imited number of neighboring servers.
 
 For download this project:
 ```
-https://github.com/dinuionica/Text-Editor.git
+https://github.com/dinuionica/Load-Balancer.git
 ```
-For test you can use de checker :<br />
+For test you can use make command using linux :<br />
 ```
-./checker
+make 
 ```
